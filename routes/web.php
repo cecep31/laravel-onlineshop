@@ -20,6 +20,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+Route::get('/about', function () {
+    return view("about");
+})->name("about");
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth'])->name('dashboard');
