@@ -14,7 +14,7 @@
 
                     <!-- Navigation Links -->
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                        <button x-on:click="categoryopen = ! categoryopen" class="flex text-sm text-gray-500 self-center" :class="categoryopen ? 'text-gray-800' : ''">Category<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <button x-on:click="categoryopen = ! categoryopen" class="flex text-sm text-gray-500 self-center" :class="categoryopen ? 'text-gray-800' : ''">Category<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                           </svg></button>
 
@@ -26,7 +26,7 @@
                 </div>
 
                 <form action="" class="self-center w-full ml-7">
-                    <input type="search" class="rounded-md   w-full px-3 h-12 focus:h-14 bg-gray-200" name="" id="" placeholder="Search...">
+                    <input type="search" class="rounded-md focus:ring-2 focus:outline-none focus:ring-green-400 w-full px-3 h-12 focus:h-14 bg-gray-200" name="" id="" placeholder="Search...">
                 </form>
 
 
