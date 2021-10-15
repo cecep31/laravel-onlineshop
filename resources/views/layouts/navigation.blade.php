@@ -25,6 +25,9 @@
 
                 </div>
 
+                <form action="" class="self-center w-full ml-7">
+                    <input type="search" class="rounded-md   w-full px-3 h-12 focus:h-14 bg-gray-200" name="" id="" placeholder="Search...">
+                </form>
 
 
                 <!-- Settings Dropdown -->
@@ -144,7 +147,12 @@
         <div x-show="categoryopen" @click.outside="categoryopen = false">
             <x-droponlineshop></x-droponlineshop>
         </div>
-        <div x-show="bagopen" @click.outside="bagopen = false">
+        <div x-show="bagopen" x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="opacity-0 transform scale-90"
+        x-transition:enter-end="opacity-100 transform scale-100"
+        x-transition:leave="transition ease-in duration-300"
+        x-transition:leave-start="opacity-100 transform scale-100"
+        x-transition:leave-end="opacity-0 transform scale-90" @click.outside="bagopen = false">
             <x-mybag></x-mybag>
         </div>
     </nav>
