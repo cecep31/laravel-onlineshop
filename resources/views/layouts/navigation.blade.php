@@ -10,7 +10,6 @@
                         <div class="block  w-auto fill-current font-bold self-center text-gray-600">PILPUT</div>
                     </a>
                 </div>
-
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <button x-on:click="categoryopen = ! categoryopen" class="flex text-sm text-gray-500 self-center"
