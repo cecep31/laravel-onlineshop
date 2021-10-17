@@ -62,22 +62,21 @@
                         <x-slot name="content">
                             <!-- Authentication -->
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                                 {{ __('My Order') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                                 {{ __('Setting') }}
                             </x-dropdown-link>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
                                 <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
-
                         </x-slot>
                     </x-dropdown>
                 @else
@@ -128,7 +127,7 @@
                         @csrf
 
                         <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
+                                                                    this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>
                     </form>
@@ -138,9 +137,6 @@
 
         </div>
     </div>
-
-
-
 
     <div x-show="categoryopen" @click.outside="categoryopen = false">
         <x-droponlineshop></x-droponlineshop>
