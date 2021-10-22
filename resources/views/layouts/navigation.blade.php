@@ -1,4 +1,4 @@
-<nav x-data="{ open: false, categoryopen: false, bagopen:false }" class="bg-white relative border-b border-gray-100">
+<nav x-data="{ open: false, categoryopen: false}" class="bg-gray-900 relative border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -7,13 +7,13 @@
                 <div class="flex-shrink-0 flex items-center ">
                     <a href="{{ route('dashboard') }}" class="bg-green-300 p-2 rounded-md">
                         {{-- <x-application-logo class="block h-10 w-auto fill-current text-gray-600" /> --}}
-                        <div class="block  w-auto fill-current font-bold self-center text-gray-600">PILPUT</div>
+                        <div class="block  w-auto fill-current font-bold self-center text-gray-600">PILPUT WATCH</div>
                     </a>
                 </div>
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <button x-on:click="categoryopen = ! categoryopen" class="flex text-sm text-gray-500 self-center"
-                        :class="categoryopen ? 'text-gray-800' : ''">Category<svg xmlns="http://www.w3.org/2000/svg"
+                    <button x-on:click="categoryopen = ! categoryopen" class="flex text-sm text-gray-300 self-center"
+                        :class="categoryopen ? 'text-gray-200' : ''">Category<svg xmlns="http://www.w3.org/2000/svg"
                             class="h-4 w-4 self-center " fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg></button>
@@ -23,22 +23,20 @@
                     </x-nav-link>
                 </div>
             </div>
-            <form action="" class="self-center w-full ml-7">
-                <input type="search"
-                    class="rounded-md focus:ring-2 focus:outline-none focus:ring-green-400 w-full px-3 h-12 focus:h-14 bg-gray-200"
-                    name="" id="" placeholder="Search...">
-            </form>
+            <!-- ini search -->
+
+                <form action="" class="self-center w-full ml-24">
+                    <input type="search"
+                        class="rounded-md focus:ring-2 focus:outline-none focus:ring-green-400 w-full px-3 h-12 focus:h-14 bg-gray-200"
+                        name="" id="" placeholder="Search...">
+                </form>
+
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <button @click="bagopen = ! bagopen" class="flex  text-gray-400 hover:text-gray-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                    </svg>
-                    <div>0</div>
-                </button>
+
+                <x-bag-shop></x-bag-shop>
+
                 <div class="mx-4 text-gray-400">|</div>
                 @auth
                     <x-dropdown align="right" width="48">
@@ -62,28 +60,28 @@
                         <x-slot name="content">
                             <!-- Authentication -->
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                                            this.closest('form').submit();">
+                                                                                    this.closest('form').submit();">
                                 {{ __('My Order') }}
                             </x-dropdown-link>
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                                            this.closest('form').submit();">
+                                                                                    this.closest('form').submit();">
                                 {{ __('Setting') }}
                             </x-dropdown-link>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
                                 <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
-                                                                            this.closest('form').submit();">
+                                                                                    this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
                     </x-dropdown>
                 @else
-                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500">Sign In</a>
+                    <a href="{{ route('login') }}" class="text-sm text-gray-300 dark:text-gray-500">Sign In</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 ">Create
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-300 dark:text-gray-500 ">Create
                             Account</a>
                     @endif
                 @endauth
@@ -127,7 +125,7 @@
                         @csrf
 
                         <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
-                                                                    this.closest('form').submit();">
+                                                                            this.closest('form').submit();">
                             {{ __('Log Out') }}
                         </x-responsive-nav-link>
                     </form>
@@ -141,10 +139,5 @@
     <div x-show="categoryopen" @click.outside="categoryopen = false">
         <x-droponlineshop></x-droponlineshop>
     </div>
-    <div x-show="bagopen" x-transition:enter="transition ease-out duration-300"
-        x-transition:enter-start="opacity-0 transform scale-90" x-transition:enter-end="opacity-100 transform scale-100"
-        x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 transform scale-100"
-        x-transition:leave-end="opacity-0 transform scale-90" @click.outside="bagopen = false">
-        <x-mybag></x-mybag>
-    </div>
+
 </nav>
